@@ -1,14 +1,29 @@
+# Copyright [2018] [Timotheos Samartzidis]
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+
 import requests
 import json
 import base64
 
-user = 'restusr'
+user = 'theuserwiththeauthcode'
 pythonapp = 'WWWW WWWW WWWW WWWW WWWW WWWW' # paste here your auth. token from Wordpress (plugin used: https://wordpress.org/plugins/application-passwords/)
-url = 'http://www.nikosam-art.de/wp-json/wp/v2'
+url = 'http://www.mypage.com/wp-json/wp/v2'
 token = base64.standard_b64encode((user + ':' + pythonapp).encode('utf-8'))
 headers = {'Authorization': 'Basic ' + token.decode('utf-8')}
 
-media = {'file': open('picture.jpg','rb')}
+media = {'file': open('picture.jpg','rb')} # 'picture.jpg' path to the image
 
 image = requests.post(url + '/media', headers=headers, files=media)
 link = json.loads(image.content.decode('utf-8'))['link']
