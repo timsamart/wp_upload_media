@@ -4,7 +4,7 @@ import requests
 import json
 import base64
 
-user = 'theuserwiththeauthcode' # the user in whitch the auth. token is given
+user = 'theuserwiththeauthcode' # the user in which the auth. token is given
 pythonapp = 'WWWW WWWW WWWW WWWW WWWW WWWW' # paste here your auth. token from Wordpress (plugin used: https://wordpress.org/plugins/application-passwords/)
 url = 'http://www.mypage.com/wp-json/wp/v2' # the url of the wp access loc
 token = base64.standard_b64encode((user + ':' + pythonapp).encode('utf-8')) # we have to encode the usr and pw
